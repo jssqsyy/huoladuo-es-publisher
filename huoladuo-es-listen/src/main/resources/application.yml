@@ -1,0 +1,28 @@
+spring:
+  profiles:
+    active: '@profiles.active@'
+  autoconfigure:
+    exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
+  datasource:
+    url: jdbc:mysql://rm-uf6dro4c6y95gbt1qdo.mysql.rds.aliyuncs.com:3306/hld_data_dev?characterEncoding=UTF-8&useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    username: hld_java_dev
+    password: K066f8bc9a0a0136
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      #初始化时建立物理连接的个数
+      initial-size: 5
+      #最小连接池数量
+      min-idle: 5
+      #最大连接池数量
+      max-active: 10
+      #获取连接时最大等待时间
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: false
+      validation-query: SELECT 1 FROM DUAL
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
